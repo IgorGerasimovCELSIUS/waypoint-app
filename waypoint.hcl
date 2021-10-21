@@ -1,13 +1,14 @@
 project = "waypoint-nodejs"
 
-#runner {
-#  enable = true
-#
-#  data_source "git" {
-#        url  = "https://github.com/IgorGerasimovCELSIUS/waypoint-app.git"    
-#        path = "./"  
-#        }
-#      }
+runner {
+  enabled = true
+
+  data_source "git" {
+    url  = "https://github.com/IgorGerasimovCELSIUS/waypoint-app.git"    
+    path = "." 
+    poll = true 
+    }
+  }
 
 app "waypoint-nodejs" {
   labels = {
