@@ -44,3 +44,14 @@ steps:
   status       List and refresh application statuses.
   up           Perform the build, deploy, and release steps
 ```
+
+
+
+
+
+
+## CONS
+ - can't remove project !!!
+ - 
+
+## PROS
