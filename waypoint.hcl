@@ -17,11 +17,11 @@ app "waypoint-nodejs" {
 
   build {
     use "pack" {}
-#    hook {            
-#      when = "before"            
-#      command = ["./audit-log.sh", "build starting"]            
-#      on_failure = "continue"        
-#    }
+    hook {            
+      when = "before"            
+      command = ["./audit-log.sh", "build starting"]            
+      on_failure = "continue"        
+    }
     registry {
       use "docker" {
         image = "loord321/waypoint-nodejs"
