@@ -31,6 +31,12 @@ helm repo add hashicorp https://helm.releases.hashicorp.com
 
 steps: 
  - Build - A build takes application source and converts it to an artifact, `https://www.waypointproject.io/docs/lifecycle/build`
+
+
+```
+DOcker auth could be enabled with IAM, Username/Password or docker_auth file
+```
+
  - Deploy - A deploy takes a previously built artifact and stages it onto the target deployment platform and is available via deployment URLs or other internal means. `https://www.waypointproject.io/docs/lifecycle/deploy`
  - Release - A release activates a previously staged deployment and opens it to general traffic. `https://www.waypointproject.io/docs/lifecycle/release`
 
@@ -45,13 +51,14 @@ steps:
   up           Perform the build, deploy, and release steps
 ```
 
-
-
-
-
+```
+waypoint destroy -auto-approve - destroy all now
+waypoint deploy -release=false
+```
 
 ## CONS
  - can't remove project !!!
- - 
+ - encoded_auth = filebase64("/Users/igor/Develop/waypoint-app/dockerAuth.json") - olny full path
 
 ## PROS
+ - integration with HC tools

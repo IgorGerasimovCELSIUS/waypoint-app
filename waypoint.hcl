@@ -8,11 +8,16 @@ app "waypoint-nodejs" {
 
   build {
     use "pack" {}
+    hook {            
+      when = "before"            
+      command = ["./audit-log.sh", "build starting"]            
+      on_failure = "continue"        
+    }
     registry {
       use "docker" {
         image = "loord321/waypoint-nodejs"
         tag   = gitrefpretty()
-        local = true
+#        encoded_auth = filebase64("/Users/igor/Develop/waypoint-app/dockerAuth.json")
       }
     }
   }
@@ -22,8 +27,6 @@ app "waypoint-nodejs" {
       name  = app.name
       chart = "${path.app}/helm"
 
-      // We use a values file so we can set the entrypoint environment
-      // variables into a rich YAML structure. This is easier than --set
       values = [
         file(templatefile("${path.app}/values.yaml.tpl")),
       ]
@@ -38,5 +41,12 @@ app "waypoint-nodejs" {
         value = artifact.tag
       }
     }
+  }
+
+  release {    
+    use "kubernetes" {      
+      load_balancer = true      
+      port          = 80    
+    }  
   }
 }
