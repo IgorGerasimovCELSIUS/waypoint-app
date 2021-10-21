@@ -10,6 +10,11 @@ runner {
     }
   }
 
+variable "port" {
+  type    = number
+  default = 80
+}
+
 app "waypoint-nodejs" {
   labels = {
     "service" = "waypoint-nodejs",
