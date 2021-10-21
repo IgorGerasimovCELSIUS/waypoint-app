@@ -62,3 +62,4 @@ waypoint deploy -release=false
 
 ## PROS
  - integration with HC tools
+ - dynamical env's with dynamical endpoints
