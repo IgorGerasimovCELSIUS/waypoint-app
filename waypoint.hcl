@@ -1,13 +1,13 @@
 project = "waypoint-nodejs"
 
-runner {
-  enable = true
-
-  data_source "git" {
-        url  = "https://github.com/IgorGerasimovCELSIUS/waypoint-app.git"    
-        path = "./"  
-        }
-      }
+#runner {
+#  enable = true
+#
+#  data_source "git" {
+#        url  = "https://github.com/IgorGerasimovCELSIUS/waypoint-app.git"    
+#        path = "./"  
+#        }
+#      }
 
 app "waypoint-nodejs" {
   labels = {
@@ -17,11 +17,11 @@ app "waypoint-nodejs" {
 
   build {
     use "pack" {}
-#    hook {            
-#      when = "before"            
-#      command = ["./audit-log.sh", "build starting"]            
-#      on_failure = "continue"        
-#    }
+    hook {            
+      when = "before"            
+      command = ["./audit-log.sh", "build starting"]            
+      on_failure = "continue"        
+    }
     registry {
       use "docker" {
         image = "loord321/waypoint-nodejs"
