@@ -41,6 +41,16 @@ DOcker auth could be enabled with IAM, Username/Password or docker_auth file
  - Release - A release activates a previously staged deployment and opens it to general traffic. `https://www.waypointproject.io/docs/lifecycle/release`
 
 
+GIT/OPS
+
+```
+waypoint project apply \
+   -poll \
+   -poll-interval="30s" \
+   waypoint-nodejs
+```
+
+
  ### Commands
  ```
   login        Log in to a Waypoint server
